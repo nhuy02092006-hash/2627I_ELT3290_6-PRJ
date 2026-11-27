@@ -1,0 +1,22 @@
+// T05_ORR : ORR: toan 0, toan 1, bit xen ke (AAAA | 5555 = FFFF..), chi mot toan hang co bit 1, ORR imm, ORRS (N/Z)
+// Moi dong = 1 lenh 32-bit (hex). Dong 1 vao dia chi 0x00, dong 2 vao 0x04, ...
+// Sinh boi tools/gen_tests.py - co the sua tay.
+E04F000F  // 0x00: SUB R0, R15, R15
+E5901000  // 0x04: LDR R1, [R0, #0]
+E5902004  // 0x08: LDR R2, [R0, #4]
+E5903008  // 0x0C: LDR R3, [R0, #8]
+E590400C  // 0x10: LDR R4, [R0, #12]
+E5905010  // 0x14: LDR R5, [R0, #16]
+E5906014  // 0x18: LDR R6, [R0, #20]
+E1817002  // 0x1C: ORR R7, R1, R2
+E1828002  // 0x20: ORR R8, R2, R2
+E1839004  // 0x24: ORR R9, R3, R4
+E183A003  // 0x28: ORR R10, R3, R3
+E185B006  // 0x2C: ORR R11, R5, R6
+E182C006  // 0x30: ORR R12, R2, R6
+E192E002  // 0x34: ORRS R14, R2, R2
+E38880AA  // 0x38: ORR R8, R8, #170
+E1949002  // 0x3C: ORRS R9, R4, R2
+E580B018  // 0x40: STR R11, [R0, #24]
+E580C01C  // 0x44: STR R12, [R0, #28]
+EAFFFFFE  // 0x48: HALT

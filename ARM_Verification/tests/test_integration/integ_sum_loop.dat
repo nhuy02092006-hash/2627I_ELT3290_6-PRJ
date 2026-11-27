@@ -1,0 +1,18 @@
+// T15_INTEGRATION_SUM_LOOP : Chuong trinh vong lap: tong 5 phan tu mang trong dmem (LDR, ADD, SUB(S), BEQ thoat vong, B nhay lui)
+// Moi dong = 1 lenh 32-bit (hex). Dong 1 vao dia chi 0x00, dong 2 vao 0x04, ...
+// Sinh boi tools/gen_tests.py - co the sua tay.
+E04F000F  // 0x00: SUB R0, R15, R15
+E2801000  // 0x04: ADD R1, R0, #0
+E2802000  // 0x08: ADD R2, R0, #0
+E2803005  // 0x0C: ADD R3, R0, #5
+// --- nhan loop ---
+E0534000  // 0x10: SUBS R4, R3, R0
+0A000004  // 0x14: BEQ done
+E5915000  // 0x18: LDR R5, [R1, #0]
+E0822005  // 0x1C: ADD R2, R2, R5
+E2811004  // 0x20: ADD R1, R1, #4
+E2433001  // 0x24: SUB R3, R3, #1
+EAFFFFF8  // 0x28: B loop
+// --- nhan done ---
+E5802040  // 0x2C: STR R2, [R0, #64]
+EAFFFFFE  // 0x30: HALT

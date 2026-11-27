@@ -1,0 +1,21 @@
+// T12_FLAGS_PERSIST : Co Z chi doi khi lenh co S: lenh khong S ra 0 khong lam Z=1; co Z giu nguyen qua lenh khong S
+// Moi dong = 1 lenh 32-bit (hex). Dong 1 vao dia chi 0x00, dong 2 vao 0x04, ...
+// Sinh boi tools/gen_tests.py - co the sua tay.
+E04F000F  // 0x00: SUB R0, R15, R15
+E2801005  // 0x04: ADD R1, R0, #5
+E0512001  // 0x08: SUBS R2, R1, R1
+E2803007  // 0x0C: ADD R3, R0, #7
+E2834001  // 0x10: ADD R4, R3, #1
+0A000000  // 0x14: BEQ yes
+E2809063  // 0x18: ADD R9, R0, #99
+// --- nhan yes ---
+E0515000  // 0x1C: SUBS R5, R1, R0
+E2806000  // 0x20: ADD R6, R0, #0
+0A000001  // 0x24: BEQ bad
+E2807001  // 0x28: ADD R7, R0, #1
+EA000000  // 0x2C: B done
+// --- nhan bad ---
+E2807063  // 0x30: ADD R7, R0, #99
+// --- nhan done ---
+E5807000  // 0x34: STR R7, [R0, #0]
+EAFFFFFE  // 0x38: HALT

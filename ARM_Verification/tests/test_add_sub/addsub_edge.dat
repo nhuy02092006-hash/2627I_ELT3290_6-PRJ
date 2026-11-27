@@ -1,0 +1,19 @@
+// T03_ADDSUB_EDGE : Bien: tran so co C/V, 0xFFFFFFFF+1, 0x7FFFFFFF+1, 0x80000000-1 (du lieu nap tu dmem)
+// Moi dong = 1 lenh 32-bit (hex). Dong 1 vao dia chi 0x00, dong 2 vao 0x04, ...
+// Sinh boi tools/gen_tests.py - co the sua tay.
+E04F000F  // 0x00: SUB R0, R15, R15
+E5901000  // 0x04: LDR R1, [R0, #0]
+E5902004  // 0x08: LDR R2, [R0, #4]
+E5903008  // 0x0C: LDR R3, [R0, #8]
+E590400C  // 0x10: LDR R4, [R0, #12]
+E0915004  // 0x14: ADDS R5, R1, R4
+E0926004  // 0x18: ADDS R6, R2, R4
+E0937003  // 0x1C: ADDS R7, R3, R3
+E0918001  // 0x20: ADDS R8, R1, R1
+E0539004  // 0x24: SUBS R9, R3, R4
+E052A003  // 0x28: SUBS R10, R2, R3
+E051B001  // 0x2C: SUBS R11, R1, R1
+E054C002  // 0x30: SUBS R12, R4, R2
+E5806010  // 0x34: STR R6, [R0, #16]
+E5809014  // 0x38: STR R9, [R0, #20]
+EAFFFFFE  // 0x3C: HALT

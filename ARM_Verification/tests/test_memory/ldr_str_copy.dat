@@ -1,0 +1,14 @@
+// T08_LDR_STR_DEPEND : Phu thuoc du lieu: LDR -> STR -> LDR -> ADD -> STR, so sanh du lieu doc lai
+// Moi dong = 1 lenh 32-bit (hex). Dong 1 vao dia chi 0x00, dong 2 vao 0x04, ...
+// Sinh boi tools/gen_tests.py - co the sua tay.
+E04F000F  // 0x00: SUB R0, R15, R15
+E5901004  // 0x04: LDR R1, [R0, #4]
+E5801040  // 0x08: STR R1, [R0, #64]
+E5902040  // 0x0C: LDR R2, [R0, #64]
+E2823001  // 0x10: ADD R3, R2, #1
+E5803044  // 0x14: STR R3, [R0, #68]
+E5904044  // 0x18: LDR R4, [R0, #68]
+E0445003  // 0x1C: SUB R5, R4, R3
+E5804048  // 0x20: STR R4, [R0, #72]
+E580504C  // 0x24: STR R5, [R0, #76]
+EAFFFFFE  // 0x28: HALT

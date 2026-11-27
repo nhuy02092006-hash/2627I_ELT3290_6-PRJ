@@ -1,0 +1,9 @@
+// Du lieu ban dau cho data memory (dmem). Dong i nam o dia chi byte 4*i.
+// O khong ghi mac dinh = 0.
+00000000  // 0x00
+DEADBEEF  // 0x04
+12345678  // 0x08
+FFFFFFFF  // 0x0C
+A5A5A5A5  // 0x10
+0000000F  // 0x14
+80000001  // 0x18

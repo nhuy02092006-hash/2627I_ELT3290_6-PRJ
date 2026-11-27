@@ -1,0 +1,19 @@
+// T13_COND_EXEC : Thuc thi co dieu kien: ADDEQ/ADDNE/ADDLT/ADDGE/ADDCC/ADDCS, STRNE/STREQ (lenh sai dieu kien khong ghi)
+// Moi dong = 1 lenh 32-bit (hex). Dong 1 vao dia chi 0x00, dong 2 vao 0x04, ...
+// Sinh boi tools/gen_tests.py - co the sua tay.
+E04F000F  // 0x00: SUB R0, R15, R15
+E2801006  // 0x04: ADD R1, R0, #6
+E0512001  // 0x08: SUBS R2, R1, R1
+02803001  // 0x0C: ADDEQ R3, R0, #1
+12804001  // 0x10: ADDNE R4, R0, #1
+E0515000  // 0x14: SUBS R5, R1, R0
+12806002  // 0x18: ADDNE R6, R0, #2
+02807002  // 0x1C: ADDEQ R7, R0, #2
+E0508001  // 0x20: SUBS R8, R0, R1
+B2809003  // 0x24: ADDLT R9, R0, #3
+A280A003  // 0x28: ADDGE R10, R0, #3
+3280B004  // 0x2C: ADDCC R11, R0, #4
+2280C004  // 0x30: ADDCS R12, R0, #4
+15809000  // 0x34: STRNE R9, [R0, #0]
+05801004  // 0x38: STREQ R1, [R0, #4]
+EAFFFFFE  // 0x3C: HALT

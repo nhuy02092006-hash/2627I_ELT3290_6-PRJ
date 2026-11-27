@@ -1,0 +1,10 @@
+// T16_RESET_MIDRUN : Reset giua chung sau 3 chu ky: PC va co ve 0, thanh ghi/bo nho KHONG bi xoa -> chay lai, R1 tang them
+// Moi dong = 1 lenh 32-bit (hex). Dong 1 vao dia chi 0x00, dong 2 vao 0x04, ...
+// Sinh boi tools/gen_tests.py - co the sua tay.
+E04F000F  // 0x00: SUB R0, R15, R15
+E2811001  // 0x04: ADD R1, R1, #1
+E281200A  // 0x08: ADD R2, R1, #10
+E0523002  // 0x0C: SUBS R3, R2, R2
+E0824001  // 0x10: ADD R4, R2, R1
+E5804000  // 0x14: STR R4, [R0, #0]
+EAFFFFFE  // 0x18: HALT

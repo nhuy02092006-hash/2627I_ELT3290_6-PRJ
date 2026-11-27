@@ -1,0 +1,18 @@
+// T02_SUB_BASIC : SUB reg/imm: a-b duong, a-a = 0, ket qua am (bu hai), 0-1 = 0xFFFFFFFF, SUBS cap nhat co N/Z/C
+// Moi dong = 1 lenh 32-bit (hex). Dong 1 vao dia chi 0x00, dong 2 vao 0x04, ...
+// Sinh boi tools/gen_tests.py - co the sua tay.
+E04F000F  // 0x00: SUB R0, R15, R15
+E280100A  // 0x04: ADD R1, R0, #10
+E2802003  // 0x08: ADD R2, R0, #3
+E0413002  // 0x0C: SUB R3, R1, R2
+E0414001  // 0x10: SUB R4, R1, R1
+E0425001  // 0x14: SUB R5, R2, R1
+E0416000  // 0x18: SUB R6, R1, R0
+E2407001  // 0x1C: SUB R7, R0, #1
+E0518002  // 0x20: SUBS R8, R1, R2
+E0529001  // 0x24: SUBS R9, R2, R1
+E051A001  // 0x28: SUBS R10, R1, R1
+E240B000  // 0x2C: SUB R11, R0, #0
+E5805004  // 0x30: STR R5, [R0, #4]
+E5807008  // 0x34: STR R7, [R0, #8]
+EAFFFFFE  // 0x38: HALT

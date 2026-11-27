@@ -1,0 +1,13 @@
+// T10_BEQ_NOT_TAKEN : BEQ not-taken (Z=0): hai lenh sau BEQ van duoc thuc thi
+// Moi dong = 1 lenh 32-bit (hex). Dong 1 vao dia chi 0x00, dong 2 vao 0x04, ...
+// Sinh boi tools/gen_tests.py - co the sua tay.
+E04F000F  // 0x00: SUB R0, R15, R15
+E2801009  // 0x04: ADD R1, R0, #9
+E2802004  // 0x08: ADD R2, R0, #4
+E0513002  // 0x0C: SUBS R3, R1, R2
+0A000001  // 0x10: BEQ skip
+E2809007  // 0x14: ADD R9, R0, #7
+E280A008  // 0x18: ADD R10, R0, #8
+// --- nhan skip ---
+E5809000  // 0x1C: STR R9, [R0, #0]
+EAFFFFFE  // 0x20: HALT

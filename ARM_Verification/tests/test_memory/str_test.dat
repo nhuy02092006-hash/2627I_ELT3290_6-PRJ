@@ -1,0 +1,22 @@
+// T07_STR : STR: nhieu gia tri/dia chi (0, 0xFFFFFFFF, mau xen ke), ghi de, doc lai sau khi ghi, base+offset, dia chi cuoi
+// Moi dong = 1 lenh 32-bit (hex). Dong 1 vao dia chi 0x00, dong 2 vao 0x04, ...
+// Sinh boi tools/gen_tests.py - co the sua tay.
+E04F000F  // 0x00: SUB R0, R15, R15
+E2801011  // 0x04: ADD R1, R0, #17
+E2402001  // 0x08: SUB R2, R0, #1
+E5903000  // 0x0C: LDR R3, [R0, #0]
+E5904004  // 0x10: LDR R4, [R0, #4]
+E5801020  // 0x14: STR R1, [R0, #32]
+E5802024  // 0x18: STR R2, [R0, #36]
+E5800028  // 0x1C: STR R0, [R0, #40]
+E580302C  // 0x20: STR R3, [R0, #44]
+E5804030  // 0x24: STR R4, [R0, #48]
+E5802020  // 0x28: STR R2, [R0, #32]
+E58010FC  // 0x2C: STR R1, [R0, #252]
+E5905020  // 0x30: LDR R5, [R0, #32]
+E5906024  // 0x34: LDR R6, [R0, #36]
+E2807040  // 0x38: ADD R7, R0, #64
+E5871004  // 0x3C: STR R1, [R7, #4]
+E5978004  // 0x40: LDR R8, [R7, #4]
+E5805038  // 0x44: STR R5, [R0, #56]
+EAFFFFFE  // 0x48: HALT

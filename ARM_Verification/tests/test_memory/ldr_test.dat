@@ -1,0 +1,17 @@
+// T06_LDR : LDR: doc nhieu dia chi hop le, du lieu 0 va nhieu mau bit, base+offset, doc dia chi cuoi (252), doc cung dia chi 2 lan
+// Moi dong = 1 lenh 32-bit (hex). Dong 1 vao dia chi 0x00, dong 2 vao 0x04, ...
+// Sinh boi tools/gen_tests.py - co the sua tay.
+E04F000F  // 0x00: SUB R0, R15, R15
+E5901000  // 0x04: LDR R1, [R0, #0]
+E5902004  // 0x08: LDR R2, [R0, #4]
+E5903008  // 0x0C: LDR R3, [R0, #8]
+E590400C  // 0x10: LDR R4, [R0, #12]
+E5905010  // 0x14: LDR R5, [R0, #16]
+E5906014  // 0x18: LDR R6, [R0, #20]
+E2807008  // 0x1C: ADD R7, R0, #8
+E5978004  // 0x20: LDR R8, [R7, #4]
+E5979010  // 0x24: LDR R9, [R7, #16]
+E590A0FC  // 0x28: LDR R10, [R0, #252]
+E590B000  // 0x2C: LDR R11, [R0, #0]
+E5802080  // 0x30: STR R2, [R0, #128]
+EAFFFFFE  // 0x34: HALT
