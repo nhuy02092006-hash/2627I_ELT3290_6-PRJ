@@ -1,7 +1,6 @@
 // ============================================================================
-// coverage.sv - Coverage thu cong (dem bang bien), KHONG dung covergroup
-//   (ModelSim Intel FPGA Starter thuong khong ho tro functional coverage).
-//   Chi ghi nhan nhung gi DUT THUC SU thuc hien (lay tu monitor).
+// coverage.sv - Coverage thu cong (dem bang bien), k dung covergroup
+//   Chi ghi nhan nhung gi DUT thuc hien (lay tu monitor).
 //   report() ghi results/coverage_summary.txt va in ra transcript.
 // ============================================================================
 `timescale 1ns/1ps
